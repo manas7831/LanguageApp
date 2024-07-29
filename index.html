@@ -1,0 +1,57 @@
+<html>
+<head>
+	<title>Language App</title>
+	<style>
+	*{font-size:50px;font-family:Cambria;}
+	body{background-color:azure;}
+	input[type="checkbox"] {height:0.5em;width:2%;}
+	h1,h2{background-color:black;color:white;width:70%;border-radius:30px;}		
+	</style>
+</head>
+	<center>
+	<h1>Language App</h1>
+	<form onsubmit="show()">
+		<input type="text" placeholder="enter your name" id="name"/>
+		<br/><br/>
+		<input type="checkbox"  id="py"/>Python
+		<input type="checkbox"  id="ja"/>Java
+		<input type="checkbox"  id="js"/>JS
+		<br/><br/>
+		<input type="submit"/>
+	</form>
+		<h2 id="msg"/>
+	<script>
+		function show()
+		{
+			event.preventDefault();
+			let name=document.getElementById("name");
+			let py=document.getElementById("py");
+			let ja=document.getElementById("ja");
+			let js=document.getElementById("js");
+			let msg=document.getElementById("msg");
+
+			if(name.value==="")
+		{
+			alert("Please enter name");
+			msg.innerHTML="";
+			name.focus();
+			return;
+		}
+			let na=name.value;
+			let la="";
+			if(py.checked)		la=la+"Python";
+			if(ja.checked)		la=la+"Java";
+			if(js.checked)			la=la+"JS";
+
+			if(la==="")
+				la="learn something";
+			
+			let a ="name="+na+"choice="+la;
+			msg.innerHTML= a ;
+		}
+	</script>
+			
+	</center>
+<body>
+</body>
+</html>
